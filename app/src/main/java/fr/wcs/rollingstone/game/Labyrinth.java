@@ -27,12 +27,11 @@ public class Labyrinth {
         String[] demo ={ "########### ##B #  ##  ##    ##    #   ## #  #   ## ####   ##        ## #  ##  ##A#      ###########",
                 "###########   ##   ## #    # ## # # ## ## #####B ## #   #####   # A######   #  ###  #   ############"};
 
-        return demo[0];
-        //return demo[(int)Math.random()*demo.length -1];
+        return demo[(int)Math.random()*demo.length];
     }
 
     public void previewLabyrinth(){
-        for (int i=0; i<100; i=10+i){
+        for (int i=0; i<100; i+=10+i){
             System.out.println(labyrinth.substring(i,10+i));
         }
     }
