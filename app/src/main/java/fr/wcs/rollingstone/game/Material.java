@@ -11,10 +11,13 @@ public class Material {
     private int width;
     private int height;
 
-    public Material(int i, int j, int row, int columns, Bitmap bitmap) {
+    public Material(int x, int y, int row, int columns, Bitmap bitmap) {
         this.width = bitmap.getWidth() / columns;
         this.height = bitmap.getHeight() / row;
-        this.src = new Rect(i, j, i + this.width, j + this.height);
+        x = x * this.width;
+        y = y * this.height;
+        this.src = new Rect(x, y, x + this.width, y + this.height);
+        this.bitmap = bitmap;
     }
 
     public Bitmap getBitmap() {

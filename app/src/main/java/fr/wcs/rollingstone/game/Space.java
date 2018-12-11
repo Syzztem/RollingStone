@@ -1,6 +1,5 @@
 package fr.wcs.rollingstone.game;
 
-import android.graphics.Canvas;
 
 public class Space extends GameObject {
 
@@ -8,8 +7,4 @@ public class Space extends GameObject {
         super(true, x, y, null, gameView);
     }
 
-    @Override
-    public void onDraw(Canvas canvas) {
-
-    }
 }

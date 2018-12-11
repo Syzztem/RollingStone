@@ -3,7 +3,7 @@ package fr.wcs.rollingstone.game;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 
-public abstract class GameObject implements  Sprite {
+public class GameObject implements  Sprite {
     private GameView gameView;
 
     private Material material;
