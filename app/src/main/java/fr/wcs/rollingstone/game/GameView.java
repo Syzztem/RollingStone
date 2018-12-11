@@ -7,7 +7,11 @@ import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 
+import java.util.List;
+
 public class GameView extends View {
+
+    private List<Sprite> sprites;
 
     public GameView(Context context) {
         super(context);
@@ -26,8 +30,15 @@ public class GameView extends View {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    public List<Sprite> getSprites() {
+        return sprites;
+    }
+
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(final Canvas canvas) {
         super.onDraw(canvas);
+        for(Sprite sprite : sprites) {
+            sprite.onDraw(canvas);
+        }
     }
 }
