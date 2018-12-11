@@ -14,14 +14,12 @@ public class GameObject implements  Sprite {
     private int x,y;
     private int width, height;
 
-    public GameObject(boolean touchable, int x, int y, int width, int height, Material material, GameView gameView) {
+    public GameObject(boolean touchable, int x, int y, Material material, GameView gameView) {
         this.touchable = touchable;
         this.gameView = gameView;
         this.material = material;
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
         this.dest = new Rect();
     }
 
@@ -35,14 +33,6 @@ public class GameObject implements  Sprite {
 
     public int getY() {
         return y;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
     @Override

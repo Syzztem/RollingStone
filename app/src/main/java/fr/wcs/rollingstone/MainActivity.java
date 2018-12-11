@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
         for(int y = 0; y < 10; y ++) {
             for(int x = 0; x < 10; x++) {
                 switch (labyrinthStr.charAt(y * 10 + x)) {
-                    case '#' : gameView.getSprites().add(new Wall(x, y, 10, 10, materialFactory.getWall(), gameView)); break;
-                    case ' ' : gameView.getSprites().add(new Space(x, y, 10, 10, materialFactory.getFloor(), gameView)); break;
-                    case 'A' : gameView.getSprites().add(new Start(x, y, 10, 10, materialFactory.getStart(), gameView)); break;
-                    case 'B' : gameView.getSprites().add(new Finish(x, y, 10, 10, materialFactory.getEnd(), gameView)); break;
+                    case '#' : gameView.getSprites().add(new Wall(x, y, materialFactory.getWall(), gameView)); break;
+                    case ' ' : gameView.getSprites().add(new Space(x, y, materialFactory.getFloor(), gameView)); break;
+                    case 'A' : gameView.getSprites().add(new Start(x, y, materialFactory.getStart(), gameView)); break;
+                    case 'B' : gameView.getSprites().add(new Finish(x, y, materialFactory.getEnd(), gameView)); break;
                     default:
                 }
             }
