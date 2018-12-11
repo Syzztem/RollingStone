@@ -11,13 +11,11 @@ public class GameObject implements  Sprite {
 
     private Rect dest;
 
-    public GameObject(boolean touchable, int x, int y, Material material, GameView gameView) {
+    public GameObject(boolean touchable, int x, int y, int width, int height, Material material, GameView gameView) {
         this.touchable = touchable;
         this.gameView = gameView;
         this.material = material;
-       // int width = gameView.getWidth() / 10;
-       // int height = gameView.getHeight() / 10;
-        this.dest = new Rect(x, y, x + this.material.getWidth(), y + this.material.getHeight());
+        this.dest = new Rect(x, y, x + width, y + height);
     }
 
     public boolean isTouchable() {

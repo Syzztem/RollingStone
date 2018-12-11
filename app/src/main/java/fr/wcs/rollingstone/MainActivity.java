@@ -9,9 +9,12 @@ import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 
+import fr.wcs.rollingstone.game.Finish;
 import fr.wcs.rollingstone.game.GameView;
 import fr.wcs.rollingstone.game.Labyrinth;
 import fr.wcs.rollingstone.game.MaterialFactory;
+import fr.wcs.rollingstone.game.Space;
+import fr.wcs.rollingstone.game.Start;
 import fr.wcs.rollingstone.game.Wall;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,15 +57,20 @@ public class MainActivity extends AppCompatActivity {
 
         String labyrinthStr = labyrinth.getLabyrinth();
         Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
+        Point size = new Point(lLayout.getMaxWidth(), lLayout.getMaxHeight());
         display.getSize(size);
 
+        int sizeX = size.x / 10;
+        int sizeY = size.y / 10;
         for(int y = 0; y < 10; y ++) {
             for(int x = 0; x < 10; x++) {
-                int posX = x * size.x / 10;
-                int posY = y * size.y / 10;
+                int posX = x * sizeX;
+                int posY = y * sizeY;
                 switch (labyrinthStr.charAt(y * 10 + x)) {
-                    case '#' : gameView.getSprites().add(new Wall(posX, posY, materialFactory.getWall(), gameView)); break;
+                    case '#' : gameView.getSprites().add(new Wall(posX, posY, sizeX, sizeY, materialFactory.getWall(), gameView)); break;
+                    case ' ' : gameView.getSprites().add(new Space(posX, posY, sizeX, sizeY, materialFactory.getFloor(), gameView)); break;
+                    case 'A' : gameView.getSprites().add(new Start(posX, posY, sizeX, sizeY, materialFactory.getStart(), gameView)); break;
+                    case 'B' : gameView.getSprites().add(new Finish(posX, posY, sizeX, sizeY, materialFactory.getEnd(), gameView)); break;
                     default:
                 }
             }
