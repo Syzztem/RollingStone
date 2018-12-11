@@ -1,7 +1,5 @@
 package fr.wcs.rollingstone.game;
 
-import java.util.Random;
-
 public class Labyrinth {
 
     private String labyrinth;
@@ -29,7 +27,8 @@ public class Labyrinth {
         String[] demo ={ "########### ##B #  ##  ##    ##    #   ## #  #   ## ####   ##        ## #  ##  ##A#      ###########",
                 "###########   ##   ## #    # ## # # ## ## #####B ## #   #####   # A######   #  ###  #   ############"};
 
-        return demo[(int)Math.random()*demo.length -1];
+        return demo[0];
+        //return demo[(int)Math.random()*demo.length -1];
     }
 
     public void previewLabyrinth(){

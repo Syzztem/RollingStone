@@ -15,6 +15,8 @@ public class GameObject implements  Sprite {
         this.touchable = touchable;
         this.gameView = gameView;
         this.material = material;
+       // int width = gameView.getWidth() / 10;
+       // int height = gameView.getHeight() / 10;
         this.dest = new Rect(x, y, x + this.material.getWidth(), y + this.material.getHeight());
     }
 
