@@ -2,12 +2,10 @@ package fr.wcs.rollingstone;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Display;
 
 import fr.wcs.rollingstone.game.Finish;
 import fr.wcs.rollingstone.game.GameView;
@@ -56,21 +54,14 @@ public class MainActivity extends AppCompatActivity {
         MaterialFactory materialFactory = new MaterialFactory(tiles);
 
         String labyrinthStr = labyrinth.getLabyrinth();
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point(lLayout.getMaxWidth(), lLayout.getMaxHeight());
-        display.getSize(size);
 
-        int sizeX = size.x / 10;
-        int sizeY = size.y / 10;
         for(int y = 0; y < 10; y ++) {
             for(int x = 0; x < 10; x++) {
-                int posX = x * sizeX;
-                int posY = y * sizeY;
                 switch (labyrinthStr.charAt(y * 10 + x)) {
-                    case '#' : gameView.getSprites().add(new Wall(posX, posY, sizeX, sizeY, materialFactory.getWall(), gameView)); break;
-                    case ' ' : gameView.getSprites().add(new Space(posX, posY, sizeX, sizeY, materialFactory.getFloor(), gameView)); break;
-                    case 'A' : gameView.getSprites().add(new Start(posX, posY, sizeX, sizeY, materialFactory.getStart(), gameView)); break;
-                    case 'B' : gameView.getSprites().add(new Finish(posX, posY, sizeX, sizeY, materialFactory.getEnd(), gameView)); break;
+                    case '#' : gameView.getSprites().add(new Wall(x, y, 10, 10, materialFactory.getWall(), gameView)); break;
+                    case ' ' : gameView.getSprites().add(new Space(x, y, 10, 10, materialFactory.getFloor(), gameView)); break;
+                    case 'A' : gameView.getSprites().add(new Start(x, y, 10, 10, materialFactory.getStart(), gameView)); break;
+                    case 'B' : gameView.getSprites().add(new Finish(x, y, 10, 10, materialFactory.getEnd(), gameView)); break;
                     default:
                 }
             }

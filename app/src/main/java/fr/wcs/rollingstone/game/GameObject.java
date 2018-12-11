@@ -11,11 +11,18 @@ public class GameObject implements  Sprite {
 
     private Rect dest;
 
+    private int x,y;
+    private int width, height;
+
     public GameObject(boolean touchable, int x, int y, int width, int height, Material material, GameView gameView) {
         this.touchable = touchable;
         this.gameView = gameView;
         this.material = material;
-        this.dest = new Rect(x, y, x + width, y + height);
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.dest = new Rect();
     }
 
     public boolean isTouchable() {
@@ -25,6 +32,14 @@ public class GameObject implements  Sprite {
     @Override
     public void onDraw(Canvas canvas) {
         // draw Bitmap
+
+        int destWidth = canvas.getWidth() / this.width;
+        int destHeight = canvas.getHeight() / this.height;
+
+        this.dest.left = this.x * destWidth;
+        this.dest.top = this.y * destWidth;
+        this.dest.right = (this.x + 1) * destWidth;
+        this.dest.bottom = (this.y + 1) * destHeight;
         material.draw(canvas, this.dest);
     }
 }
