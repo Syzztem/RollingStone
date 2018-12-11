@@ -1,17 +1,8 @@
 package fr.wcs.rollingstone.game;
 
-import android.graphics.Canvas;
-
 public class Wall extends GameObject {
 
-    public Wall() {
-        super(false, null);
-    }
-
-
-
-    @Override
-    public void onDraw(Canvas canvas) {
-
+    public Wall(int x, int y, GameView gameView) {
+        super(false, x, y, null, gameView);
     }
 }

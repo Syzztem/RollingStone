@@ -4,8 +4,8 @@ import android.graphics.Canvas;
 
 public class Space extends GameObject {
 
-    public Space() {
-        super(true, null);
+    public Space(int x, int y, GameView gameView) {
+        super(true, x, y, null, gameView);
     }
 
     @Override

@@ -1,14 +1,8 @@
 package fr.wcs.rollingstone.game;
 
-import android.graphics.Canvas;
-
 public class Start extends GameObject {
-    public Start() {
-        super(true, null);
+    public Start(int x, int y, GameView gameView) {
+        super(true, x, y, null, gameView);
     }
 
-    @Override
-    public void onDraw(Canvas canvas) {
-
-    }
 }
