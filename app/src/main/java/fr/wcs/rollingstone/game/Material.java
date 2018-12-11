@@ -1,21 +1,20 @@
 package fr.wcs.rollingstone.game;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Rect;
 
-public class Tile {
+public class Material {
     private Bitmap bitmap;
     private Rect src;
-    private Rect dest;
 
     private int width;
     private int height;
 
-    public Tile(int i, int j, int row, int columns, int x, int y, Bitmap bitmap) {
-        this.width = bitmap.getWidth() / row;
-        this.height = bitmap.getHeight() / columns;
+    public Material(int i, int j, int row, int columns, Bitmap bitmap) {
+        this.width = bitmap.getWidth() / columns;
+        this.height = bitmap.getHeight() / row;
         this.src = new Rect(i, j, i + this.width, j + this.height);
-        this.dest = new Rect(x, y, x + this.width, y + this.height);
     }
 
     public Bitmap getBitmap() {
@@ -34,7 +33,7 @@ public class Tile {
         return height;
     }
 
-    public Rect getDest() {
-        return dest;
+    public void draw(Canvas canvas, Rect dest) {
+        canvas.drawBitmap(this.bitmap, this.src, dest, null);
     }
 }

@@ -1,19 +1,21 @@
 package fr.wcs.rollingstone.game;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 
 public abstract class GameObject implements  Sprite {
-    private Bitmap bitmap;
     private GameView gameView;
 
-    private Tile tile;
+    private Material material;
     private boolean touchable;
 
-    public GameObject(boolean touchable, Tile tile, GameView gameView) {
+    private Rect dest;
+
+    public GameObject(boolean touchable, int x, int y, Material material, GameView gameView) {
         this.touchable = touchable;
         this.gameView = gameView;
-        this.tile = tile;
+        this.material = material;
+        this.dest = new Rect(x, y, x + this.material.getWidth(), y + this.material.getHeight());
     }
 
     public boolean isTouchable() {
@@ -23,8 +25,6 @@ public abstract class GameObject implements  Sprite {
     @Override
     public void onDraw(Canvas canvas) {
         // draw Bitmap
-
-        canvas.drawBitmap(this.bitmap,
-                this.tile.getSrc(), this.tile.getDest(), null);
+        material.draw(canvas, this.dest);
     }
 }

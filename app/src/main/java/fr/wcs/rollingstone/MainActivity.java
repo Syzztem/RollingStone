@@ -1,16 +1,11 @@
 package fr.wcs.rollingstone;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
 
-import java.util.BitSet;
-
 import fr.wcs.rollingstone.game.GameView;
-import fr.wcs.rollingstone.game.Tile;
 
 public class MainActivity extends AppCompatActivity {
 
