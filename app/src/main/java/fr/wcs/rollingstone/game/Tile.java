@@ -1,35 +1,40 @@
 package fr.wcs.rollingstone.game;
 
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Rect;
 
-public class Tile implements Sprite {
+public class Tile {
     private Bitmap bitmap;
-    private GameView gameView;
-
-    private int row;
-    private int column;
+    private Rect src;
+    private Rect dest;
 
     private int width;
-    private int heigth;
+    private int height;
 
-    public Tile(Bitmap bitmap, GameView gameView) {
-        this.bitmap = bitmap;
-        this.gameView = gameView;
-        this.row = 0;
-        this.column = 0;
-        this.width = bitmap.getWidth() / this.row;
-        this.heigth = bitmap.getHeight() / this.column;
+    public Tile(int i, int j, int row, int columns, int x, int y, Bitmap bitmap) {
+        this.width = bitmap.getWidth() / row;
+        this.height = bitmap.getHeight() / columns;
+        this.src = new Rect(i, j, i + this.width, j + this.height);
+        this.dest = new Rect(x, y, x + this.width, y + this.height);
     }
 
-    @Override
-    public void onDraw(Canvas canvas) {
-        // draw Bitmap
-        int srcX = 0;
-        int srcY = 1 * this.heigth;
-        Rect src = new Rect(srcX, srcY, srcX + this.width, srcY + this.heigth);
-        Rect dest = new Rect(0, 0, this.width, this.heigth);
-        canvas.drawBitmap(this.bitmap, src, dest, null);
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public Rect getSrc() {
+        return src;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public Rect getDest() {
+        return dest;
     }
 }
