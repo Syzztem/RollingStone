@@ -49,8 +49,12 @@ public class GameObject implements  Sprite {
     public void onDraw(Canvas canvas) {
         // draw Bitmap
 
-        int destWidth = canvas.getWidth() / this.width;
-        int destHeight = canvas.getHeight() / this.height;
+        int destWidth, destHeight;
+
+        if (canvas.getHeight() > canvas.getWidth())
+            destWidth = destHeight = canvas.getWidth() / this.width;
+        else
+            destHeight = destWidth = canvas.getHeight() / this.height;
 
         this.dest.left = this.x * destWidth;
         this.dest.top = this.y * destWidth;

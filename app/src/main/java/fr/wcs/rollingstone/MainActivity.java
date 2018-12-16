@@ -2,10 +2,12 @@ package fr.wcs.rollingstone;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 
 import fr.wcs.rollingstone.game.Finish;
 import fr.wcs.rollingstone.game.GameView;
@@ -55,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         String labyrinthStr = labyrinth.getLabyrinth();
 
-        for(int y = 0; y < 10; y ++) {
-            for(int x = 0; x < 10; x++) {
+        for (int y = 0; y < 10; y ++) {
+            for (int x = 0; x < 10; x++) {
                 switch (labyrinthStr.charAt(y * 10 + x)) {
                     case '#' : gameView.getSprites().add(new Wall(x, y, 10, 10, materialFactory.getWall(), gameView)); break;
                     case ' ' : gameView.getSprites().add(new Space(x, y, 10, 10, materialFactory.getFloor(), gameView)); break;
